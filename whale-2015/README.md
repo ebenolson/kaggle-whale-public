@@ -16,11 +16,13 @@ Right Whale Recognition
     make
     source .venv/bin/activate
     ```
+
 2. Install prerequisites
 
     ```
     pip install scipy scikit-image
     ```
+
 3. Download the following files from [Kaggle](https://kaggle.com/c/noaa-right-whale-recognition/data):
 
     ```
@@ -31,8 +33,6 @@ Right Whale Recognition
     ```
     Save these to ../data.
 
-    ```
-    
 4. Train localizer and generate predictions
 
     ```
