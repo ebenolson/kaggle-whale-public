@@ -32,6 +32,7 @@ Right Whale Recognition
     Save these to ../data.
 
     ```
+    
 4. Train localizer and generate predictions
 
     ```
