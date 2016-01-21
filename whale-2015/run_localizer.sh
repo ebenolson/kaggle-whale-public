@@ -62,9 +62,9 @@ do
     echo Round $i
 
     echo Localizing first point: `date`
-    ./localizer2.py -z32 -e $num_epochs -w $data_dir/macrotrain -tw $data_dir/macrotest -r0 -s model1_.pkl -bgpu -pn 1 -iw $imwidth --serialize 1 ${@:2}
+    ./localizer.py -z32 -e $num_epochs -w $data_dir/macrotrain -tw $data_dir/macrotest -r0 -s model1_.pkl -bgpu -pn 1 -iw $imwidth --serialize 1 ${@:2}
     echo Localizing second point: `date`
-    ./localizer2.py -z32 -e $num_epochs -w $data_dir/macrotrain -tw $data_dir/macrotest -r0 -s model2_.pkl -bgpu -pn 2 -iw $imwidth --serialize 1 ${@:2}
+    ./localizer.py -z32 -e $num_epochs -w $data_dir/macrotrain -tw $data_dir/macrotest -r0 -s model2_.pkl -bgpu -pn 2 -iw $imwidth --serialize 1 ${@:2}
 
     mv testpoints1.json $data_dir/testpoints/testpoints1_$i.json
     mv testpoints2.json $data_dir/testpoints/testpoints2_$i.json
