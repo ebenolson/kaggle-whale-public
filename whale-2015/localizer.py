@@ -38,12 +38,9 @@ parser.add_argument('-tw', '--test_data_dir',
                     help='directory in which to find test images')
 parser.add_argument('-pn', '--point_num', default=None, help='1 or 2')
 parser.add_argument('-iw', '--image_width', default=384, help='image width')
-parser.add_argument('-N', '--split_num', help='split')
-
 args = parser.parse_args()
 point_num = int(args.point_num)
 imwidth = int(args.image_width)
-N = int(args.split_num)
 
 train = LocalizerLoader(repo_dir=args.data_dir, inner_size=imwidth,
                         set_name='train', nlabels=4, do_transforms=False,
@@ -59,7 +56,7 @@ common = dict(init=init, batch_norm=True, activation=Rectlin())
 
 # Set up the model layers
 layers = []
-nchan = 32
+nchan = 64
 layers.append(Conv((4, 4, nchan), strides=4, **common))
 for idx in range(16):
     layers.append(Conv((3, 3, nchan), **common))
@@ -74,7 +71,7 @@ layers.append(Deconv((3, 3, 1), init=init, activation=Logistic(shortcut=True)))
 cost = GeneralizedCost(costfunc=SumSquared())
 mlp = Model(layers=layers)
 callbacks = Callbacks(mlp, train, **args.callback_args)
-evaluator = Evaluator(callbacks.callback_data, mlp, test, 'train_{}'.format(N), imwidth, args.epochs,
+evaluator = Evaluator(callbacks.callback_data, mlp, test, imwidth, args.epochs,
                       args.data_dir, point_num)
 callbacks.add_callback(evaluator)
 mlp.fit(train, optimizer=opt, num_epochs=args.epochs, cost=cost,
