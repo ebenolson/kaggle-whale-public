@@ -70,10 +70,11 @@ Trained classifier snapshots can be provided but are not included due to the fil
   - Run section III of the notebook to convert the localizer outputs.
   - Produce test crops using `det_testpointsN.json`.
 
-Five submissions produced by these models were included in the final ensemble. They were generated as follows:
+Six submissions produced by these models were included in the final ensemble. They were generated as follows:
 
-1. `submission_01032016_1` (public LB 1.90): `testpointsN_filtered.json` and `SEED=1`.
-2. `submission_01032016_2` (public LB 1.87): `testpointsN_filtered.json` and `SEED=2`.
-3. `submission_01062016_2` (public LB 1.68): `testpointsN_filtered_B.json` and `SEED=1`.
-4. `submission_01072016_1` (public LB 1.63): `testpointsN_filtered_B.json` and `SEED=2`.
-5. `submission_01062016_1` (public LB 2.57): `detcrop_testpointsN.json` and `SEED=1`.
+1. `submission_01032016_1.csv` (public LB 1.90): `testpointsN_filtered.json` and `SEED=1`.
+2. `submission_01032016_2.csv` (public LB 1.87): `testpointsN_filtered.json` and `SEED=2`.
+3. `submission_01062016_2.csv` (public LB 1.68): `testpointsN_filtered_B.json` and `SEED=1`.
+4. `submission_01072016_1.csv` (public LB 1.63): `testpointsN_filtered_B.json` and `SEED=2`.
+5. `submission_01062016_1.csv` (public LB 2.57): `detcrop_testpointsN.json` and `SEED=1`.
+6. `submission_01072016_2.csv` (public LB 2.09): A blend of `submission_01072016_1.csv` and `submission_01062016_1.csv` - run `Blend Submissions.ipynb` to generate.
